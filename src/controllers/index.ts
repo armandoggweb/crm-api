@@ -1,11 +1,5 @@
-import { PrismaClient } from '@prisma/client';
-
-import users from './users';
-import customers from './customers';
-
-const prisma = new PrismaClient();
-
-export { prisma };
+import * as users from './users';
+import * as customers from './customers';
 
 export default {
   users,
