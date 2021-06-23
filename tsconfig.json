@@ -5,6 +5,8 @@
     "module": "commonjs",
     "outDir": "./dist",
     "noEmit": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
     "esModuleInterop": true,
   },
   "include": ["./src/**/*"]
