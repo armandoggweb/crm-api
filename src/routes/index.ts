@@ -1,9 +1,7 @@
 import customers from './customers';
 import users from './users';
 
-const routes = {
+export default{
   users,
   customers,
 };
-
-export default routes;
