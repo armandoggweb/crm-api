@@ -1,9 +1,28 @@
 import { Prisma, Role } from '@prisma/client';
 import prisma from '../client';
 
+interface UserCustomSelect {
+  id: string;
+  email: string;
+  role: Role;
+}
 
-export const findAll = async (): Promise<object> => {
-  return await prisma.user.findMany();
+export const findAll = async (): Promise<Array<UserCustomSelect>> => {
+  return await prisma.user.findMany({
+    select: {
+      id: true,
+      email: true,
+      role: true,
+    },
+  });
+};
+
+export const findByEmail = async (email: string) => {
+  return await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
 };
 
 export const create = async (user: Prisma.UserCreateInput) => {
@@ -33,10 +52,10 @@ export const changeRole = async (role: Role, id: string) => {
   });
 };
 
-export const remove = async (id: string) =>{
+export const remove = async (id: string) => {
   return await prisma.user.delete({
     where: {
       id,
     },
   });
-}
+};
