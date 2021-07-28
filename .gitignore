@@ -3,3 +3,4 @@ dist
 .env
 .vsconfig
 prisma/migrations
+coverage
